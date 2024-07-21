@@ -1,4 +1,6 @@
+# PPM Generator for the RP2040 using PIO
 
+Based on the work from [Elmot](https://github.com/raspberrypi/pico-examples/pull/414).
 
 ## Utils
 
