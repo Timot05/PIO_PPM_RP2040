@@ -14,3 +14,6 @@ Online tool to compile PIO code for the RP2040:
 
 [WOKWI_PIOASM](https://wokwi.com/tools/pioasm)
 
+## Note
+
+`PIO_INTR_SM0_TXNFULL_LSB` was defined in multiple place and was causing build issues, so I replaced it with `pis_sm0_tx_fifo_not_full`.
