@@ -63,8 +63,15 @@ static inline void ppm_program_init(PIO pio, uint pin) {
     pio_sm_restart(ppm_data.pio, 0);
 
     pio_set_irq0_source_enabled(ppm_data.pio, pis_sm0_tx_fifo_not_full, true);
-    irq_set_exclusive_handler(PIO0_IRQ_0, ppm_handler);
-    irq_set_enabled(PIO0_IRQ_0, true);
+
+    if (ppm_data.pio == pio0) {
+        irq_set_exclusive_handler(PIO0_IRQ_0, ppm_handler);
+        irq_set_enabled(PIO0_IRQ_0, true);
+    } else {
+        irq_set_exclusive_handler(PIO1_IRQ_0, ppm_handler);
+        irq_set_enabled(PIO1_IRQ_0, true);
+    }
+
     pio_sm_set_enabled(ppm_data.pio, 0, true);
 }
 
